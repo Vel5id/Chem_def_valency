@@ -1,0 +1,73 @@
+x = input()
+amount_list = ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F', 'Ne', 'Na', 'Mg', 'Al', 
+                                                               'Si', 'P', 'S', 'Cl', 'Ar']
+value_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+ide = amount_list.index(x)
+idv = value_list[ide]
+count = 0
+count_list = []
+# Список уровней и кол-ва макс электронов на них где первое число это уровень, а второе число кол-во электронов 1s2, 2s2 2p6, 3s2 3p6 3d10, 4s2
+lvl_1s, lvl_2s, lvl_3s, lvl_4s, lvl_5s = 2, 2, 2, 2, 2
+lvl_2p, lvl_3p = 6, 6
+lvl_3d, lvl_4d = 10, 10
+# Определение какие электронные подуровни занимает электрон в атоме
+for i in range(lvl_1s):
+        if idv == 1:
+                last_numb = i + 1
+        if idv <= 0:
+                break
+        else:
+                idv -= 1
+        if i == lvl_1s - 1:
+                count += 1
+                count_list.append('1s2')
+
+for i in range(lvl_2s):
+        if idv == 1:
+                last_numb = i + 1        
+        if idv <= 0:
+                break
+        else:
+                idv -= 1
+        if i == lvl_2s - 1:
+                count +=1
+                count_list.append('2s2')
+
+for i in range(lvl_2p):
+        if idv == 1:
+                last_numb = i + 1        
+        if idv <= 0:
+                break
+        else:
+                idv -= 1
+        if i == lvl_2p - 1:
+                count += 1
+                count_list.append('2p6')
+
+for i in range(lvl_3s):
+        if idv == 1:
+                last_numb = i + 1        
+        if idv <= 0:
+                break
+        else:
+                idv -= 1
+        if i == lvl_3s - 1:
+                count += 1
+                count_list.append('3s2')
+
+for i in range(lvl_3p):
+        if idv == 1:
+                last_numb = i + 1        
+        if idv <= 0:
+                break
+        else:
+                idv -= 1
+        if i == lvl_3p - 1:
+                count += 1
+                count_list.append('3p6')
+
+print("Производим вычисление с", amount_list[ide])
+print("Имеет полных электронных уровней", count)
+print("Имеет всего электронных уровней", count + 1)
+print(count_list)
+print("На последнем уровне -", last_numb, "электронов")
